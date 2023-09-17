@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCTCCAIDPI.Models.Medic>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contato)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Crm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contato)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MedicId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MedicId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MedicId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
